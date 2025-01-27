@@ -8,6 +8,9 @@ class ParrotType(Enum):
 
 
 class Parrot:
+    _BASE_SPEED: float = 12.0
+    _LOAD_FACTOR: float = 9.0
+
     def __init__(
         self,
         type_of_parrot: int | ParrotType,
@@ -23,11 +26,11 @@ class Parrot:
     def speed(self) -> float:
         match self._type:
             case ParrotType.EUROPEAN:
-                return self._base_speed()
+                return self._BASE_SPEED
             case ParrotType.AFRICAN:
                 return max(
                     0,
-                    self._base_speed() - self._load_factor() * self._number_of_coconuts,
+                    self._BASE_SPEED - self._LOAD_FACTOR * self._number_of_coconuts,
                 )
             case ParrotType.NORWEGIAN_BLUE:
                 return 0 if self._nailed else self._compute_base_speed_for_voltage()
@@ -42,10 +45,4 @@ class Parrot:
                 return "Bzzzzzz" if self._voltage > 0 else "..."
 
     def _compute_base_speed_for_voltage(self) -> float:
-        return min([24.0, self._voltage * self._base_speed()])
-
-    def _load_factor(self) -> float:
-        return 9.0
-
-    def _base_speed(self) -> float:
-        return 12.0
+        return min([24.0, self._voltage * self._BASE_SPEED])
