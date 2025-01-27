@@ -46,3 +46,12 @@ class Parrot:
 
     def _compute_base_speed_for_voltage(self) -> float:
         return min([24.0, self._voltage * self._BASE_SPEED])
+
+
+def create_parrot(
+    type_of_parrot: int | ParrotType,
+    number_of_coconuts: int,
+    voltage: float,
+    nailed: bool,
+):
+    return Parrot(type_of_parrot, number_of_coconuts, voltage, nailed)
