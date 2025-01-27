@@ -11,7 +11,7 @@ I made a [video explaining this kata](https://youtu.be/UxNEHKg_2eA), and videos 
 
 * [in C#](https://youtu.be/IvFX8Ivit1k)
 * [in Java](https://youtu.be/7IT6c8wwHs4)
-* [in Python](https://youtu.be/pO_5DQ3vDtc)
+* [in Python](https://y utu.be/pO_5DQ3vDtc)
 
 There is also a Guided Learning Hour using this exercise: [Everyday Design Improvements in OO Code](https://youtu.be/NCEWAqEFPic)
 
