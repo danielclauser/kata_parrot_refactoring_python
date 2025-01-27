@@ -23,7 +23,7 @@ class Parrot:
         self._voltage = voltage
         self._nailed = nailed
 
-    def speed(self) -> float:
+    def speed(self) -> float | ValueError:
         match self._type:
             case ParrotType.EUROPEAN:
                 return self._BASE_SPEED
@@ -34,8 +34,10 @@ class Parrot:
                 )
             case ParrotType.NORWEGIAN_BLUE:
                 return 0 if self._nailed else self._compute_base_speed_for_voltage()
+            case _:
+                raise ValueError(f"Parrot not found {self._type}")
 
-    def cry(self) -> str:
+    def cry(self) -> str | ValueError:
         match self._type:
             case ParrotType.EUROPEAN:
                 return "Sqoork!"
@@ -43,6 +45,8 @@ class Parrot:
                 return "Sqaark!"
             case ParrotType.NORWEGIAN_BLUE:
                 return "Bzzzzzz" if self._voltage > 0 else "..."
+            case _:
+                raise ValueError(f"Parrot not found {self._type}")
 
     def _compute_base_speed_for_voltage(self) -> float:
         return min([24.0, self._voltage * self._BASE_SPEED])
